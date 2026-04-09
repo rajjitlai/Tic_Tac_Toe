@@ -75,6 +75,7 @@ Array.from(boxes).forEach((element) => {
     element.addEventListener("click", () => {
         if (boxText.innerText === "") {
             boxText.innerText = userTurn;
+            boxText.classList.add(userTurn === "X" ? "x-marker" : "o-marker");
             userTurn = changeTurn();
             checkWin();
             checkDraw();
@@ -91,6 +92,7 @@ reset.addEventListener("click", () => {
     let boxTexts = document.querySelectorAll(".boxText");
     Array.from(boxTexts).forEach((element) => {
         element.innerText = "";
+        element.classList.remove("x-marker", "o-marker");
     });
     userTurn = "X";
     gameOver = false;
